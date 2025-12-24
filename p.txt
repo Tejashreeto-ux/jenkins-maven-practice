@@ -1,0 +1,85 @@
+git init
+echo "Hello, Git" > file1.txt
+git add file1.txt
+git commit -m "our very first"
+
+echo "second file" > file2.txt
+git add file2.txt
+git commit -m "second commit"
+
+echo "file3" > file3.txt
+git add file3.txt
+git commit -m "third commit"
+
+git rm file1.txt file2.txt file3.txt
+git add -u
+git commit -m "empty tree"
+
+git checkout -b BR-1
+echo "content of file4" > file4.txt
+git add file4.txt
+git commit -m "first commit in BR-1"
+
+git checkout master
+echo "newfile 4" > file4.txt
+git add file4.txt
+git commit -m "master change"
+
+git checkout BR-1
+echo "br1 change" > file4.txt
+git add file4.txt
+git commit -m "master change in file4"
+
+git checkout master
+git merge BR-1
+conflict
+
+echo "newfile4" > file4.txt
+git add file4.txt
+git commit -m "merging conflict"
+
+git merge BR-1
+Already upto date
+
+
+login to devA account
+create repo collab1
+copy url of repo
+create folder & open in VS Code
+write App.java after git clone and
+cd collab1
+ctrl+s the App.java
+
+git add App.java
+git commit -m "Initial App.java"
+git push
+
+git checkout -b devA
+change code
+git add App.java
+git commit -m "devA"
+git push origin devA
+
+then go to settings
+collaborator and invite devB
+
+login as devB
+accept the invitation of devA from mail
+create another folder and open in VS Code
+git clone url
+cd collab1
+
+git checkout -b devB
+change code
+git add App.java
+git commit -m "devB"
+git push origin devB
+
+Now login as devA
+accept pull request and
+merge conflict
+
+as devA
+git checkout main
+git pull origin main
+same as devB
